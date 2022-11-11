@@ -48,7 +48,7 @@ var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
 // CODE HERE 
 
 function first(arr, callback){
-  return callback(arr[0])
+  callback(arr[0])
 }
 
 // UNCOMMENT THE FUNCTION CALL BELOW
@@ -70,7 +70,7 @@ first(names, firstName => {
 
 // CODE HERE
 function last(arr, callback){
-  return callback(arr[arr.length - 1])
+  callback(arr[arr.length - 1])
 }
 
 // UNCOMMENT THE FUNCTION CALL BELOW
@@ -154,7 +154,9 @@ console.log(`The new names array with all the duplicate items removed is ${uniqA
 */
 
 // CODE HERE 
-
+function each(arr, cb){
+  arr.forEach((el, i) =>cb(el,i))
+}
 
 /*
   Invoke the each function, passing in the names array and a callback function.
@@ -164,7 +166,7 @@ console.log(`The new names array with all the duplicate items removed is ${uniqA
 */
 
 // CODE HERE
-
+each(names, (item, index) => console.log(`The item at index ${index} is ${item}.`))
 
 ////////// PROBLEM 7 //////////
 
@@ -197,15 +199,22 @@ var users = [
 // Do not edit the code above.
 
 // CODE HERE 
+// function getUserById(arr, id, cb){
+// arr.filter(user => user.id ===id ? cb(user) : null)
+// }
+
+function getUserById(arr, id, cb){
+arr.forEach(user => user.id === id ? cb(user) : null)
+}
 
 
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
 // CHECK YOUR ANSWER
 
-// getUserById(users, '16t', user => {
-//   console.log('The user with the id 16t has the email of ' + user.email + ' the name of ' + user.name + ' and the address of ' + user.address) 
-// })
+getUserById(users, '16t', user => {
+  console.log('The user with the id 16t has the email of ' + user.email + ' the name of ' + user.name + ' and the address of ' + user.address) 
+})
 
 ////////// CHALLENGE //////////
 
